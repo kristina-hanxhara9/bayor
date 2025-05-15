@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayor Enterprises | Professional Plumbing & Heating Solutions</title>
+    <style>
+        :root {
+            --primary: #2c8c5e;
+            --primary-dark: #1e6642;
+            --primary-light: #a8e0c9;
+            --secondary: #3c4858;
+            --secondary-light: #5d6b7e;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .section-padding {
+            padding: 80px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            padding: 10px 0;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+            font-size: 14px;
+        }
+        
+        .header-info {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .header-info a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-info i {
+            margin-right: 5px;
+        }
+        
+        .header-social a {
+            color: var(--white);
+            font-size: 16px;
+            margin-left: 15px;
+            transition: opacity 0.3s;
+        }
+        
+        .header-social a:hover {
+            opacity: 0.8;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .header-main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo a {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .nav-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/700') center/cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        /* Features */
+        .features {
+            margin-top: -70px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-box {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-box i {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-box h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .feature-box p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+        
+        .section-header {
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .about-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .about-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .about-list li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+        }
+        
+        /* Services */
+        .services {
+            background-color: var(--light);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-box {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .service-box:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Why Choose Us */
+        .why-us {
+            background-color: var(--white);
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .why-us-box {
+            text-align: center;
+            padding: 30px;
+            border-radius: 5px;
+            background-color: var(--light);
+            transition: all 0.3s;
+        }
+        
+        .why-us-box:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .why-us-box:hover i, 
+        .why-us-box:hover h3 {
+            color: var(--white);
+        }
+        
+        .why-us-box i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        
+        .why-us-box h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            transition: color 0.3s;
+        }
+        
+        .why-us-box p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+        
+        /* Accreditations */
+        .accreditations {
+            background-color: var(--light);
+        }
+        
+        .accreditation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .accreditation-box {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+        }
+        
+        .accreditation-box img {
+            max-width: 100px;
+            max-height: 80px;
+            margin-bottom: 15px;
+        }
+        
+        .accreditation-box p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(rgba(44, 140, 94, 0.9), rgba(44, 140, 94, 0.9)), url('/api/placeholder/1200/400') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+        }
+        
+        .cta .btn-white {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--white);
+        }
+        
+        .cta .btn-white:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-box {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .testimonial-box:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 30px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--light);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+        
+        .testimonial-content {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-content:before {
+            content: '\f10d';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 24px;
+            color: rgba(44, 140, 94, 0.2);
+            position: absolute;
+            top: -10px;
+            left: -10px;
+        }
+        
+        .testimonial-stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .testimonial-author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-author-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .testimonial-author-info p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 20px;
+        }
+        
+        .contact-details h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .contact-details p, .contact-details a {
+            color: var(--gray);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .btn-submit {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-submit:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding-top: 70px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+        
+        .footer-widget h4 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-widget h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        .footer-widget p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact-icon {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 16px;
+        }
+        
+        .footer-social {
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-bottom {
+            background-color: var(--secondary-light);
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .section-header h2 {
+                font-size: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top-content, .header-main-content {
+                flex-direction: column;
+            }
+            
+            .header-info, .header-social, .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container header-top-content">
+                <div class="header-info">
+                    <a href="tel:"><i class="fas fa-phone"></i> 24/7 Emergency Service</a>
+                    <a href="mailto:"><i class="fas fa-envelope"></i> Email Us</a>
+                </div>
+                <div class="header-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container header-main-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="/api/placeholder/50/50" alt="Bayor Enterprises Logo">
+                        <span>Bayor Enterprises</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="tel:" class="nav-button">Call Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Professional Plumbing & Heating Solutions</h1>
+            <p>Whether you need boiler installation, servicing, or repairs, our expert team is here to help with prompt, reliable service 24/7.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i class="fas fa-tools"></i>
+                    <h3>Expert Engineers</h3>
+                    <p>All work carried out by qualified Gas Safe engineers and NICEIC electricians.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Fast Response</h3>
+                    <p>24/7 emergency service with quick response times when you need us most.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Guaranteed Work</h3>
+                    <p>All our work is fully guaranteed for your complete peace of mind.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-pound-sign"></i>
+                    <h3>Competitive Pricing</h3>
+                    <p>Professional services at fair prices without compromising on quality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>About Us</h2>
+                <p>Professional, reliable, and trusted heating and plumbing specialists serving your area.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="/api/placeholder/600/400" alt="Bayor Enterprises Team">
+                </div>
+                <div class="about-text">
+                    <h3>Your Trusted Plumbing & Heating Specialists</h3>
+                    <p>At Bayor Enterprises, we provide professional plumbing and heating services for residential and commercial clients. Our experienced team delivers high-quality workmanship and exceptional customer service on every job.</p>
+                    <p>Whatever the problem with your boiler or plumbing system, our expert engineers can help and advise on the best solution.</p>
+                    <ul class="about-list">
+                        <li>Supply, installation, servicing and repair of all boiler makes and models</li>
+                        <li>Gas safety checks and landlord gas safety certificates</li>
+                        <li>Plumbing works and pipe fitting upgrades</li>
+                        <li>Power flushing for efficient heating systems</li>
+                        <li>Emergency 24/7 service for when you need us most</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Contact Us Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Services</h2>
+                <p>We offer a comprehensive range of plumbing and heating services to meet all your needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Boiler Installation">
+                    </div>
+                    <div class="service-content">
+                        <h3>Boiler Installation</h3>
+                        <p>Professional installation of all makes and models of boilers, with expert advice on the best system for your home or business.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Boiler Servicing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Boiler Servicing</h3>
+                        <p>Regular maintenance to ensure your boiler runs efficiently, safely, and reliably, potentially saving you money on energy bills.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Boiler Repairs">
+                    </div>
+                    <div class="service-content">
+                        <h3>Boiler Repairs</h3>
+                        <p>Fast, efficient repairs to get your heating and hot water back up and running quickly when problems occur.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Central Heating Installation">
+                    </div>
+                    <div class="service-content">
+                        <h3>Central Heating</h3>
+                        <p>Complete central heating installations, upgrades, and repairs to keep your home warm and comfortable.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Gas Safety Checks">
+                    </div>
+                    <div class="service-content">
+                        <h3>Gas Safety Checks</h3>
+                        <p>Comprehensive gas safety inspections and certificates for landlords and homeowners, ensuring legal compliance.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-box">
+                    <div class="service-image">
+                        <img src="/api/placeholder/400/250" alt="Power Flushing">
+                    </div>
+                    <div class="service-content">
+                        <h3>Power Flushing</h3>
+                        <p>Specialized cleaning of your central heating system to remove sludge and improve efficiency and performance.</p>
+                        <a href="#" class="read-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Why Choose Us</h2>
+                <p>When you choose Bayor Enterprises, you're choosing quality, reliability, and excellence.</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-us-box">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Professionals</h3>
+                    <p>Our team consists of fully qualified Gas Safe engineers and NICEIC electricians.</p>
+                </div>
+                <div class="why-us-box">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>Quality Workmanship</h3>
+                    <p>We take pride in delivering high-quality work on every project, big or small.</p>
+                </div>
+                <div class="why-us-box">
+                    <i class="fas fa-clock"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>Round-the-clock emergency service for when you need help the most.</p>
+                </div>
+                <div class="why-us-box">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Competitive Pricing</h3>
+                    <p>Fair and transparent pricing with no hidden costs or surprises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditations -->
+    <section class="accreditations section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Accreditations</h2>
+                <p>We're proud to be recognized by these industry-leading organizations.</p>
+            </div>
+            <div class="accreditation-grid">
+                <div class="accreditation-box">
+                    <img src="/api/placeholder/100/60" alt="Gas Safe Register">
+                    <p>Gas Safe Register</p>
+                </div>
+                <div class="accreditation-box">
+                    <img src="/api/placeholder/100/60" alt="Vaillant Accredited Installer">
+                    <p>Vaillant Accredited Installer</p>
+                </div>
+                <div class="accreditation-box">
+                    <img src="/api/placeholder/100/60" alt="NICEIC">
+                    <p>NICEIC</p>
+                </div>
+                <div class="accreditation-box">
+                    <img src="/api/placeholder/100/60" alt="Water Industry Approved">
+                    <p>Water Industry Approved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Need Emergency Plumbing or Heating Services?</h2>
+            <p>Our team is available 24/7 to handle all your emergency plumbing and heating needs. Don't wait—contact us now for prompt, professional service.</p>
+            <a href="tel:" class="btn btn-white">Call Us Now</a>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Customer Testimonials</h2>
+                <p>Don't just take our word for it. Here's what our satisfied customers have to say.</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Quick boiler repair - excellent customer service skills. Arrived at my house within hour of calling."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="/api/placeholder/60/60" alt="Jacob H">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Jacob H.</h4>
+                            <p>20 Oct 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Bathroom pop up waste was leaking - we called hometech & the price was very reasonable so we proceeded for further works to complete the job on the same day he was called out - will highly recommend."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="/api/placeholder/60/60" alt="Sarah W">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Sarah W.</h4>
+                            <p>21 Dec 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"New viessmann boiler - top quality installation, very professional service from start to finish."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image">
+                            <img src="/api/placeholder/60/60" alt="Jacoob H">
+                        </div>
+                        <div class="testimonial-author-info">
+                            <h4>Jacoob H.</h4>
+                            <p>10 Sep 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for all your plumbing and heating needs.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Our Location</h4>
+                            <p>124 Hazelmere Road, Northolt, UB5 6UW</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <a href="tel:">24/7 Emergency Service</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <a href="mailto:">Send us an email</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Working Hours</h4>
+                            <p>24/7 Emergency Service</p>
+                            <p>Monday to Friday: 8am - 6pm</p>
+                            <p>Saturday: 9am - 4pm</p>
+                            <p>Sunday: Emergency callouts only</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" selected disabled>Select Service</option>
+                                <option value="Boiler Installation">Boiler Installation</option>
+                                <option value="Boiler Servicing">Boiler Servicing</option>
+                                <option value="Boiler Repair">Boiler Repair</option>
+                                <option value="Central Heating">Central Heating</option>
+                                <option value="Gas Safety Check">Gas Safety Check</option>
+                                <option value="Power Flushing">Power Flushing</option>
+                                <option value="Emergency Call Out">Emergency Call Out</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-widget">
+                    <h4>About Us</h4>
+                    <p>Bayor Enterprises provides professional plumbing and heating services. We supply, install, service, and repair all makes and models of boilers and central heating systems.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-widget">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Boiler Installation</a></li>
+                        <li><a href="#">Boiler Servicing</a></li>
+                        <li><a href="#">Boiler Repairs</a></li>
+                        <li><a href="#">Central Heating</a></li>
+                        <li><a href="#">Gas Safety Checks</a></li>
+                        <li><a href="#">Power Flushing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-widget">
+                    <h4>Contact Info</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>124 Hazelmere Road, Northolt, UB5 6UW</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>24/7 Emergency Service</div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>Email Us</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Bayor Enterprises. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
